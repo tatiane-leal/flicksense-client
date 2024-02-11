@@ -13,4 +13,10 @@ export class ApiService {
     const url = '  http://localhost:3000/posts';
     return this._http.get<Post[]>(url);
   }
+
+  // TODO: Create user interface
+  getUsers(): Observable<any> {
+    const url = '  http://localhost:3000/users';
+    return this._http.get<any>(url);
+  }
 }

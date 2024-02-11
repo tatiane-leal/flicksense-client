@@ -1,1 +1,8 @@
-<p>users works!</p>
+<div class="card-wrapper" *ngFor="let user of users">
+    <mat-card>
+      <mat-card-content>
+       <span [routerLink]="['/profile', user._id]">{{ user.email }}</span> 
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
