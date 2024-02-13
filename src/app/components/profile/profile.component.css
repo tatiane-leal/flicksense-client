@@ -1,0 +1,44 @@
+.user-profile {
+  display: flex;
+}
+.sidebar {
+  width: 250px;
+  height: 1000px;
+}
+.content {
+  flex: 1;
+  padding: 20px;
+}
+mat-card-avatar {
+  width: 70px;
+  height: 70px;
+}
+
+mat-card-title,
+mat-card-subtitle {
+  text-align: center;
+}
+
+.movie-container {
+  margin: 20px;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.user-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 28px;
+}
+
+.user-picture {
+    width: 120px;
+    height: 120px;
+}

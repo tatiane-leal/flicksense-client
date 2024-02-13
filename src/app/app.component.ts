@@ -9,15 +9,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from '../interceptors/auth.interceptor';
 
 @Component({
   selector: 'app-root',
-  providers: [
-    ApiService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  providers: [ApiService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
@@ -34,10 +29,11 @@ import { AuthInterceptor } from '../interceptors/auth.interceptor';
   ],
 })
 export class AppComponent implements OnInit {
-  // constructor(public router: Router) {}
-  ngOnInit(): void {}
+  constructor(private _apiService: ApiService) {}
 
-  // navigateToRegister() {
-  //   this.router.navigate(['/register']);
-  // }
+  ngOnInit(): void {
+    this._apiService.getUsers().subscribe(users => {
+      console.log(users);
+    });
+  }
 }

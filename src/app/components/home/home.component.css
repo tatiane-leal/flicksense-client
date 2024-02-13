@@ -1,0 +1,34 @@
+.container {
+  margin: 20px;
+  text-align: center;
+}
+
+mat-grid-list {
+  width: 100%;
+  height: auto;
+
+}
+
+mat-card {
+  max-width: 400px;
+
+}
+
+/* Estilos responsivos */
+@media (max-width: 1200px) {
+  mat-grid-list {
+    cols: 3;
+  }
+}
+
+@media (max-width: 800px) {
+  mat-grid-list {
+    cols: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  mat-grid-list {
+    cols: 1;
+  }
+}

@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Post } from '../../../models/post.interface';
 import { ApiService } from '../../services/api.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-message',
@@ -12,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './message.component.html',
   styleUrl: './message.component.css',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, HttpClientModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule],
 })
 export class MessageComponent implements OnInit {
   public posts: Post[] = [];

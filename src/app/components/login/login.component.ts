@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormsModule,
@@ -26,7 +25,6 @@ import { TokenStorageService } from '../../services/token-storage.service';
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule,
   ],
   providers: [
     AuthService,

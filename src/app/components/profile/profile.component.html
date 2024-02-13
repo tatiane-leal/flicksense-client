@@ -1,1 +1,41 @@
-{{ userID }}
+<div class="user-profile">
+  <div class="sidebar">
+    <mat-card>
+      <div class="user-image-container">
+        <img
+          class="user-picture"
+          mat-card-avatar
+          src="./../../../assets/images/profile.png"
+          alt="User Profile Picture"
+        />
+      </div>
+
+      <mat-card-title>Tim Ny</mat-card-title>
+      <mat-card-subtitle>Developer</mat-card-subtitle>
+      <mat-list>
+        <mat-list-item>Email: {{ profile.email }}</mat-list-item>
+        <mat-list-item>Role: {{ profile.roles?.User }}</mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+  <div class="content">
+    <h2>User's Favorite Movies</h2>
+    <!-- <mat-chip-set aria-label="List of user interests">
+      <mat-chip color="primary">Product Infrastructure</mat-chip>
+      <mat-chip color="accent">Network Security</mat-chip>
+    </mat-chip-set> -->
+    <div class="movie-container">
+      <mat-grid-list cols="3" rowHeight="1:1.5">
+        <mat-grid-tile *ngFor="let movie of movies">
+          <mat-card>
+            <img mat-card-image [src]="movie.image" [alt]="movie.title" />
+            <mat-card-header>
+              <mat-card-title>{{ movie.title }}</mat-card-title>
+              <mat-card-subtitle>{{ movie.year }}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

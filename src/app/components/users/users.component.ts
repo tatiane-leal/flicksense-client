@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -9,7 +8,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, RouterModule],
   providers: [ApiService],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',

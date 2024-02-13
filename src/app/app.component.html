@@ -6,11 +6,13 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>FlickSense</span>
+  <span routerLink="/">FlickSense</span>
   <span class="example-spacer"></span>
   <!-- <button mat-button (click)="navigateToRegister()">Register</button> -->
   <button mat-button routerLink="/register">Register</button>
   <button mat-button routerLink="/login">Login</button>
+  <button mat-button routerLink="/users">Users</button>
+  <button mat-button [routerLink]="['/profile/65c801b331ebc75593b37e4f']">Profile</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
