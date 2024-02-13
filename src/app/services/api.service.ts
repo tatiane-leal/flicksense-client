@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Post } from '../../models/post.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  // _http = inject(HttpClient);
   constructor(private _http: HttpClient) {}
 
   getMessages(): Observable<Post[]> {

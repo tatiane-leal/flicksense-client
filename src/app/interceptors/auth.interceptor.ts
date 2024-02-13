@@ -4,7 +4,6 @@ import { inject } from '@angular/core';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenStorageService = inject(TokenStorageService);
-  console.log('authInterceptor token?', tokenStorageService.getToken());
 
   const authReq = req.clone({
     headers: req.headers.set(
@@ -13,5 +12,13 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     ),
   });
 
-  return next(authReq);
+  if(!req.url.startsWith('https://api.themoviedb.org')) {
+    return next(authReq);
+  } else {
+    return next(req);
+  }
+
+ 
+
+  
 };

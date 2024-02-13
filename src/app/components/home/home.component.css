@@ -1,34 +1,87 @@
-.container {
-  margin: 20px;
-  text-align: center;
-}
-
-mat-grid-list {
+.movie-selection-container {
   width: 100%;
-  height: auto;
+  margin: auto;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.movie-container {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.poster-container {
+  width: 160px;
+  height: 0;
+  padding-top: 121.47%;
+  position: relative;
 
 }
 
-mat-card {
-  max-width: 400px;
-
+.poster-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-/* Estilos responsivos */
-@media (max-width: 1200px) {
-  mat-grid-list {
-    cols: 3;
-  }
+.add-button-container {
+  background-color: black;
 }
 
-@media (max-width: 800px) {
-  mat-grid-list {
-    cols: 2;
-  }
+h2 {
+  margin-bottom: 20px;
 }
 
-@media (max-width: 400px) {
-  mat-grid-list {
-    cols: 1;
+li {
+  list-style-type: none;
+}
+
+.movie-info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px;
+}
+
+.search-field {
+  min-width: 120px;
+}
+
+.movie-title {
+  padding-top: 20px;
+}
+
+.tmdb-api-credits{
+  margin-top: 50px;
+}
+
+.tmdb-logo{
+  width: 200px;
+}
+
+.search-button {
+  margin-top: -20px;
+}
+
+@media (max-width: 600px) {
+  .poster-container {
+    width: 100%;
+    padding-top: 121.47%;
   }
 }

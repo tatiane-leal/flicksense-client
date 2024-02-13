@@ -1,26 +1,85 @@
-<div class="container">
-  <h2>Select your favorite movies to proceed</h2>
-  <mat-grid-list
-    cols="4"
-    rowHeight="2:1"
-    gutterSize="10px"
-    (window:resize)="onResize($event)"
-  >
-    <mat-grid-tile *ngFor="let movie of movies">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{ movie.title }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <img mat-card-image [src]="movie.poster" alt="Movie poster" />
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-icon-button (click)="addFavorite(movie)">
-            <mat-icon>add</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <button mat-raised-button color="primary">Next</button>
+<div class="movie-selection-container">
+  <h2>Find and select your favorite movies to proceed</h2>
+
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genre">
+        <mat-option *ngFor="let genre of genres$ | async" [value]="genre.id">{{
+          genre.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-label>Year</mat-label>
+      <input matInput formControlName="year" />
+    </mat-form-field>
+
+    <mat-form-field *ngIf="searchForm.value.genre && searchForm.value.year" appearance="fill" class="search-field">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <button
+      *ngIf="hasSearched"
+      mat-raised-button
+      color="accent"
+      class="search-button"
+      (click)="clearSearch()"
+    >
+      Clear Search
+    </button>
+  </form>
+
+  
+
+
+  <ul class="movie-container">
+    <li *ngFor="let movie of movies$ | async">
+      <div>
+        <div class="poster-container">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            alt="{{ movie.title }}"
+            class="poster-image"
+            (error)="fallbackImage($event, movie)"
+          />
+        </div>
+        <div class="movie-info">
+          <span>
+            <button
+              class="add-button-container"
+              mat-icon-button
+              color="accent"
+              (click)="addFavorite(movie)"
+            >
+              <mat-icon>add_circle_outline</mat-icon>
+            </button></span
+          >
+        </div>
+      </div>
+      <p
+        class="movie-title"
+        *ngIf="shouldShowEllipsis(movie.title)"
+        matTooltip="{{ movie.title }}"
+      >
+        {{ movie.title | slice : 0 : 16 }}...
+      </p>
+      <p class="movie-title" *ngIf="!shouldShowEllipsis(movie.title)">
+        {{ movie.title }}
+      </p>
+    </li>
+  </ul>
+
+  <button mat-raised-button color="primary" class="next-button">Next</button>
+
+  <div class="tmdb-api-credits">
+    <span>
+      Powered by
+      <a a href="https://www.themoviedb.org/" target="_blank"
+        ><img class="tmdb-logo" src="./../../../assets/images/tmdb-logo-2.svg"
+      /></a>
+    </span>
+  </div>
 </div>
