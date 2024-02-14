@@ -1,7 +1,11 @@
 <div>
   <h2 class="header-title">Find and select your favorite movies to proceed</h2>
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form-container">
+  <form
+    [formGroup]="searchForm"
+    (ngSubmit)="onSearch()"
+    class="search-form-container"
+  >
     <mat-form-field appearance="fill" class="search-form-field">
       <mat-label>Genre</mat-label>
       <mat-select formControlName="genre">
@@ -26,19 +30,15 @@
     </mat-form-field>
 
     <button
-    *ngIf="hasSearched || true"
-    class="search-button"
-    mat-raised-button
-    color="accent"
-    (click)="clearSearch()"
-  >
-    Clear Search
-  </button>
-
- 
+      *ngIf="hasSearched || true"
+      class="search-button"
+      mat-raised-button
+      color="accent"
+      (click)="clearSearch()"
+    >
+      Clear Search
+    </button>
   </form>
-
-  
 
   <ul>
     <li *ngFor="let movie of movies$ | async">
