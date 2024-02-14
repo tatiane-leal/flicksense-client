@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './services/auth.guard';
+import { moviesResolver } from './services/movies.resolver';
 
 export const routes: Routes = [
     {
         path: '',
-        loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent)
+        loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent),
+        resolve: {
+            moviesData: moviesResolver
+        },
+        canActivate: [authGuard],
     },
     {
         path: 'messages',

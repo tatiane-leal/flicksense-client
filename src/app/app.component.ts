@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { CommonModule } from '@angular/common';
 import { MessageComponent } from './components/message/message.component';
@@ -9,10 +9,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
+import { AuthService } from './services/auth.service';
+import { TokenStorageService } from './services/token-storage.service';
 
 @Component({
   selector: 'app-root',
-  providers: [ApiService],
+  providers: [ApiService, AuthService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
@@ -29,11 +31,29 @@ import { MatInputModule } from '@angular/material/input';
   ],
 })
 export class AppComponent implements OnInit {
-  constructor(private _apiService: ApiService) {}
+  constructor(
+    public authService: AuthService,
+    private _apiService: ApiService,
+    private _tokenStorageService: TokenStorageService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
-    this._apiService.getUsers().subscribe(users => {
-      console.log(users);
+    // this._apiService.getUsers().subscribe(users => {
+    //   console.log(users);
+    // });
+  }
+
+  logoutUser(): void {
+    console.log('logout user');
+    this.authService.logoutUser().subscribe({
+      next: () => {
+        this._tokenStorageService.clearToken();
+        this._router.navigate(['/login']);
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 }

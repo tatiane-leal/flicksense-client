@@ -1,8 +1,8 @@
-<div class="movie-selection-container">
-  <h2>Find and select your favorite movies to proceed</h2>
+<div>
+  <h2 class="header-title">Find and select your favorite movies to proceed</h2>
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
-    <mat-form-field appearance="fill">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form-container">
+    <mat-form-field appearance="fill" class="search-form-field">
       <mat-label>Genre</mat-label>
       <mat-select formControlName="genre">
         <mat-option *ngFor="let genre of genres$ | async" [value]="genre.id">{{
@@ -11,31 +11,36 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="search-field">
+    <mat-form-field appearance="fill" class="search-form-field">
       <mat-label>Year</mat-label>
       <input matInput formControlName="year" />
     </mat-form-field>
 
-    <mat-form-field *ngIf="searchForm.value.genre && searchForm.value.year" appearance="fill" class="search-field">
+    <mat-form-field
+      *ngIf="(searchForm.value.genre && searchForm.value.year) || true"
+      appearance="fill"
+      class="search-form-field"
+    >
       <mat-label>Title</mat-label>
       <input matInput formControlName="title" />
     </mat-form-field>
 
     <button
-      *ngIf="hasSearched"
-      mat-raised-button
-      color="accent"
-      class="search-button"
-      (click)="clearSearch()"
-    >
-      Clear Search
-    </button>
+    *ngIf="hasSearched || true"
+    class="search-button"
+    mat-raised-button
+    color="accent"
+    (click)="clearSearch()"
+  >
+    Clear Search
+  </button>
+
+ 
   </form>
 
   
 
-
-  <ul class="movie-container">
+  <ul>
     <li *ngFor="let movie of movies$ | async">
       <div>
         <div class="poster-container">
@@ -71,12 +76,13 @@
       </p>
     </li>
   </ul>
-
-  <button mat-raised-button color="primary" class="next-button">Next</button>
+  <div class="next-button">
+    <button mat-raised-button color="primary" class="next-button">Next</button>
+  </div>
 
   <div class="tmdb-api-credits">
     <span>
-      Powered by
+      API Powered by
       <a a href="https://www.themoviedb.org/" target="_blank"
         ><img class="tmdb-logo" src="./../../../assets/images/tmdb-logo-2.svg"
       /></a>

@@ -12,13 +12,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     ),
   });
 
-  if(!req.url.startsWith('https://api.themoviedb.org')) {
+  if (!req.url.startsWith('https://api.themoviedb.org')) {
     return next(authReq);
   } else {
     return next(req);
   }
-
- 
-
-  
 };

@@ -11,14 +11,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Movie } from '../../../models/movie.interface';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
+import { ActivatedRoute } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @Component({
   selector: 'app-home',
@@ -36,31 +35,44 @@ import { MatChipsModule } from '@angular/material/chips';
     FormsModule,
     MatTooltipModule,
     MatChipsModule,
+    MatToolbarModule
   ],
   providers: [MoviesService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
+  searchForm: FormGroup = new FormGroup({});
   movies$!: Observable<Movie[]>;
   genres$!: Observable<{ id: number; name: string }[]>;
   hasSearched: boolean = false;
 
-  constructor(private fb: FormBuilder, private _moviesService: MoviesService) {
-    this._moviesService.getPopularMovies().subscribe({
-      next: (response) => {
-        console.log(response);
-        this.movies$ = of(response);
+  constructor(
+    private fb: FormBuilder,
+    private _moviesService: MoviesService,
+    private _activatedRoute: ActivatedRoute
+  ) {
+    // this._moviesService.getPopularMovies().subscribe({
+    //   next: (response) => {
+    //     console.log(response);
+    //     this.movies$ = of(response);
+    //   },
+    //   error: (error) => console.error(error),
+    // });
+    // this.genres$ = this._moviesService.getGenres();
+  }
+
+  ngOnInit() {
+    // Get data from the resolver
+    this._activatedRoute.data.subscribe({
+      next: ({ moviesData }) => {
+        // Atribuição direta do Observable
+        this.movies$ = of(moviesData.popularMovies);
+        this.genres$ = of(moviesData.genres);
       },
       error: (error) => console.error(error),
     });
 
-    this.genres$ = this._moviesService.getGenres();
-  }
-
-  searchForm: FormGroup = new FormGroup({});
-
-  ngOnInit() {
     this.searchForm = this.fb.group({
       title: [''],
       genre: [''],
