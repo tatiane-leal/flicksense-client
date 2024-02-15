@@ -14,6 +14,9 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+import { CurrentUser } from '../../../models/user.interface';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -27,10 +30,7 @@ import { Router } from '@angular/router';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [
-    AuthService,
-    TokenStorageService
-  ],
+  providers: [AuthService, TokenStorageService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -53,12 +53,11 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       this._authService.loginUser(this.loginForm.value).subscribe({
-        next: (response) => {
-          this._tokenStorageService.saveToken(response.accessToken);
+        next: () => {
           this._router.navigate(['/']);
         },
         error: (error) => {
-          console.error('Login failed', error);
+          console.error(error);
         },
       });
     }
