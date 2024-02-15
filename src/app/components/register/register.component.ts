@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -35,10 +36,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _router: Router
   ) {}
   ngOnInit(): void {
     this.registerForm = this._fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -48,7 +51,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this._authService.registerUser(this.registerForm.value).subscribe({
         next: (response) => {
-          console.log('Registration successful', response);
+          this._router.navigate(['/login']);
         },
         error: (error) => {
           console.error('Registration failed', error);
