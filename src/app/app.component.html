@@ -1,15 +1,31 @@
 <div>
+  <mat-toolbar *ngIf="authService.isAuthenticated">
+    <span class="clickable" routerLink="/"
+      >FlickSense<span>
+        | {{ (authService.currentUser | async)?.UserInfo?.name }}
+      </span></span
+    >
 
-<mat-toolbar>
-  <span routerLink="/">FlickSense</span>
-  <span class="example-spacer"></span>
-  <!-- <button mat-button (click)="navigateToRegister()">Register</button> -->
-  <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/register">Register</button>
-  <!-- <button mat-button routerLink="/login">Login</button> -->
-  <!-- <button mat-button *ngIf="authService.isAuthenticated" routerLink="/users">Users</button>
+    <span class="example-spacer"></span>
+    <!-- <button mat-button (click)="navigateToRegister()">Register</button> -->
+    <button
+      mat-button
+      *ngIf="!authService.isAuthenticated"
+      routerLink="/register"
+    >
+      Register
+    </button>
+    <!-- <button mat-button routerLink="/login">Login</button> -->
+    <!-- <button mat-button *ngIf="authService.isAuthenticated" routerLink="/users">Users</button>
   <button mat-button *ngIf="authService.isAuthenticated" [routerLink]="['/profile/65c801b331ebc75593b37e4f']">Profile</button> -->
-  <button mat-button *ngIf="authService.isAuthenticated" (click)="logoutUser()">Logout</button>
-</mat-toolbar>
+    <button
+      mat-button
+      *ngIf="authService.isAuthenticated"
+      (click)="logoutUser()"
+    >
+      Logout
+    </button>
+  </mat-toolbar>
 </div>
 
 <router-outlet></router-outlet>

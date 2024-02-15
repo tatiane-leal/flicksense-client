@@ -11,10 +11,12 @@ import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from './services/auth.service';
 import { TokenStorageService } from './services/token-storage.service';
+import { CurrentUser } from '../models/user.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, TokenStorageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
@@ -37,18 +39,12 @@ export class AppComponent implements OnInit {
     private _tokenStorageService: TokenStorageService,
     private _router: Router
   ) {}
-
-  ngOnInit(): void {
-    // this._apiService.getUsers().subscribe(users => {
-    //   console.log(users);
-    // });
-  }
+  ngOnInit(): void {}
 
   logoutUser(): void {
     console.log('logout user');
     this.authService.logoutUser().subscribe({
       next: () => {
-        this._tokenStorageService.clearToken();
         this._router.navigate(['/login']);
       },
       error: (error) => {
