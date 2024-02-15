@@ -21,7 +21,7 @@
     </mat-form-field>
 
     <mat-form-field
-      *ngIf="(searchForm.value.genre && searchForm.value.year) || true"
+      *ngIf="searchForm.value.genre && searchForm.value.year"
       appearance="fill"
       class="search-form-field"
     >
@@ -30,7 +30,7 @@
     </mat-form-field>
 
     <button
-      *ngIf="hasSearched || true"
+      *ngIf="hasSearched"
       class="search-button"
       mat-raised-button
       color="accent"
@@ -44,7 +44,10 @@
     <ul *ngIf="movies.length > 0; else noResults">
       <li *ngFor="let movie of movies">
         <div>
-          <div class="poster-container">
+          <div
+            class="poster-container"
+            [class.selected]="isMovieSelected(movie)"
+          >
             <img
               [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
               alt="{{ movie.title }}"
@@ -58,7 +61,8 @@
                 class="add-button-container"
                 mat-icon-button
                 color="accent"
-                (click)="addFavorite(movie)"
+                [disabled]="isMovieSelected(movie)"
+                (click)="selectMovies(movie)"
               >
                 <mat-icon>add_circle_outline</mat-icon>
               </button></span
@@ -89,7 +93,14 @@
   </ng-template>
 
   <div class="next-button">
-    <button mat-raised-button color="primary" class="next-button">Next</button>
+    <button
+      mat-raised-button
+      (click)="saveMovies()"
+      color="primary"
+      class="next-button"
+    >
+      Next
+    </button>
   </div>
 
   <div class="tmdb-api-credits">

@@ -41,7 +41,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
 }
 
 .movie-title {
@@ -81,7 +80,7 @@ h2 {
 .search-button {
   margin-left: 18px;
   margin-right: 18px;
-  margin-top: -20px
+  margin-top: -20px;
 }
 
 .no-results-container {
@@ -94,4 +93,14 @@ h2 {
 .no-results-container img {
   width: 230px;
   border-radius: 4px;
+}
+
+.poster-container.selected .poster-image,
+.add-button-container[disabled] {
+  opacity: 0.5;
+}
+
+.add-button-container[disabled] {
+  pointer-events: none;
+  color: gray;
 }

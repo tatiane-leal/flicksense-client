@@ -10,14 +10,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Movie } from '../../../models/movie.interface';
+import { Movie, MoviePayload } from '../../../models/movie.interface';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
+import { CurrentUser } from '../../../models/user.interface';
+import { TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -35,9 +38,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FormsModule,
     MatTooltipModule,
     MatChipsModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
-  providers: [MoviesService],
+  providers: [MoviesService, ApiService, AuthService, TokenStorageService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -46,27 +49,28 @@ export class HomeComponent implements OnInit {
   movies$!: Observable<Movie[]>;
   genres$!: Observable<{ id: number; name: string }[]>;
   hasSearched: boolean = false;
+  currentUser!: CurrentUser | null;
+
+  private _selectedMovies: Movie[] = [];
 
   constructor(
     private fb: FormBuilder,
     private _moviesService: MoviesService,
-    private _activatedRoute: ActivatedRoute
-  ) {
-    // this._moviesService.getPopularMovies().subscribe({
-    //   next: (response) => {
-    //     console.log(response);
-    //     this.movies$ = of(response);
-    //   },
-    //   error: (error) => console.error(error),
-    // });
-    // this.genres$ = this._moviesService.getGenres();
-  }
+    private _activatedRoute: ActivatedRoute,
+    private _apiService: ApiService,
+    private _tokenStorageService: TokenStorageService,
+    private _router: Router,
+    private _authService: AuthService
+  ) {}
 
   ngOnInit() {
+    this._authService.currentUser.subscribe((currentUser) => {
+      this.currentUser = currentUser;
+    });
+
     // Get data from the resolver
     this._activatedRoute.data.subscribe({
       next: ({ moviesData }) => {
-        // Atribuição direta do Observable
         this.movies$ = of(moviesData.popularMovies);
         this.genres$ = of(moviesData.genres);
       },
@@ -142,8 +146,31 @@ export class HomeComponent implements OnInit {
     this.movies$ = this._moviesService.getPopularMovies();
   }
 
-  addFavorite(movie: Movie) {
-    console.log('Added to favorites:', movie);
+  selectMovies(movie: Movie): void {
+    if (!this._selectedMovies.find((m) => m.title === movie.title)) {
+      this._selectedMovies.push(movie);
+
+      console.log('movies selected', this._selectedMovies);
+    }
+  }
+
+  isMovieSelected(movie: Movie): boolean {
+    return !!this._selectedMovies.find((m) => m.title === movie.title);
+  }
+
+  saveMovies(): void {
+    const payload: MoviePayload = {
+      id: this.currentUser?.UserInfo?.id,
+      movies: this._selectedMovies,
+    };
+
+    this._apiService.saveMovies(payload).subscribe({
+      next: (response) => {
+        console.log('save movie response', response);
+        this._router.navigate(['/profile', this.currentUser?.UserInfo?.id]);
+      },
+      error: (error) => console.error(error),
+    });
   }
 
   fallbackImage(event: any, movie: any): void {
