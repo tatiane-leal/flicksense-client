@@ -21,3 +21,8 @@ export interface Movie {
   vote_average: number;
   vote_count: number;
 }
+
+export interface MoviePayload {
+  id: string | undefined;
+  movies: Movie[];
+}
