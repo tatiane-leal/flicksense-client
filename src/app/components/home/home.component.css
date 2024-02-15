@@ -84,9 +84,14 @@ h2 {
   margin-top: -20px
 }
 
-/* .example-icon {
-  padding: 0 14px;
+.no-results-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 40px 0;
 }
-.example-spacer {
-  flex: 1 1 auto;
-} */
+
+.no-results-container img {
+  width: 230px;
+  border-radius: 4px;
+}

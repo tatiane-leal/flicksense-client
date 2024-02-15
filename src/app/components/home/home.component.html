@@ -40,42 +40,54 @@
     </button>
   </form>
 
-  <ul>
-    <li *ngFor="let movie of movies$ | async">
-      <div>
-        <div class="poster-container">
-          <img
-            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-            alt="{{ movie.title }}"
-            class="poster-image"
-            (error)="fallbackImage($event, movie)"
-          />
-        </div>
-        <div class="movie-info">
-          <span>
-            <button
-              class="add-button-container"
-              mat-icon-button
-              color="accent"
-              (click)="addFavorite(movie)"
+  <ng-container *ngIf="movies$ | async as movies; else noResults">
+    <ul *ngIf="movies.length > 0; else noResults">
+      <li *ngFor="let movie of movies">
+        <div>
+          <div class="poster-container">
+            <img
+              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              alt="{{ movie.title }}"
+              class="poster-image"
+              (error)="fallbackImage($event, movie)"
+            />
+          </div>
+          <div class="movie-info">
+            <span>
+              <button
+                class="add-button-container"
+                mat-icon-button
+                color="accent"
+                (click)="addFavorite(movie)"
+              >
+                <mat-icon>add_circle_outline</mat-icon>
+              </button></span
             >
-              <mat-icon>add_circle_outline</mat-icon>
-            </button></span
-          >
+          </div>
         </div>
-      </div>
-      <p
-        class="movie-title"
-        *ngIf="shouldShowEllipsis(movie.title)"
-        matTooltip="{{ movie.title }}"
-      >
-        {{ movie.title | slice : 0 : 16 }}...
-      </p>
-      <p class="movie-title" *ngIf="!shouldShowEllipsis(movie.title)">
-        {{ movie.title }}
-      </p>
-    </li>
-  </ul>
+        <p
+          class="movie-title"
+          *ngIf="shouldShowEllipsis(movie.title)"
+          matTooltip="{{ movie.title }}"
+        >
+          {{ movie.title | slice : 0 : 16 }}...
+        </p>
+        <p class="movie-title" *ngIf="!shouldShowEllipsis(movie.title)">
+          {{ movie.title }}
+        </p>
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #noResults>
+    <div class="no-results-container">
+      <img
+        src="./../../../assets/images/not-found.png"
+        alt="No results found"
+      />
+    </div>
+  </ng-template>
+
   <div class="next-button">
     <button mat-raised-button color="primary" class="next-button">Next</button>
   </div>
