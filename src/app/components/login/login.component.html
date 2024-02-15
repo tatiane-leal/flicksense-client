@@ -1,8 +1,17 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="card-wrapper">
+    <div class="logo-container">
+      <div>
+        <img class="logo" src="./../../../assets/images/flicksense-logo.png" />
+      </div>
+
+      <div>
+        <p>Get sentiment analysis on your movie reviews!</p>
+      </div>
+    </div>
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Login to FlickSense</mat-card-title>
+        <mat-card-title>Login</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-form-field appearance="fill">
@@ -22,9 +31,7 @@
           <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
             Password is required.
           </mat-error>
-          <mat-error
-            *ngIf="loginForm.get('password')?.errors?.['minlength']"
-          >
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
             Password must be at least 6 characters long.
           </mat-error>
         </mat-form-field>
@@ -41,5 +48,11 @@
         </div>
       </mat-card-content>
     </mat-card>
+    <div class="account-container">
+      <p>
+        Don't have an account?
+        <span><a class="acount-login-link" href="/register">Sign Up!</a></span>
+      </p>
+    </div>
   </div>
 </form>
