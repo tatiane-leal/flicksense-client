@@ -30,4 +30,9 @@ export class ApiService {
     const url = `http://localhost:3000/users`;
     return this._http.put(url, payload);
   }
+
+  getUserMovies(userId: string): Observable<Movie[]> {
+    const url = `http://localhost:3000/users/${userId}`;
+    return this._http.get<Movie[]>(url);
+  }
 }
