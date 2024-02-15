@@ -1,16 +1,34 @@
+.register-container {
+  display: flex;
+}
+
 .card-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  flex-direction: column;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-top: 35px;
+}
+
+.logo {
+  width: 110px;
 }
 
 mat-card {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  background-color: #e0e0e0;
+  background-color: #1e1e1e;
   padding: 20px;
 }
 
@@ -27,7 +45,15 @@ mat-form-field {
 .button-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.account-container {
   margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.account-register-link {
+  color: #fff;
 }
 
 @media (max-width: 768px) {
