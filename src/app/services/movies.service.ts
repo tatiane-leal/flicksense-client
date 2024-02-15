@@ -39,7 +39,6 @@ export class MoviesService {
   }): Observable<Movie[]> {
     let params = new HttpParams().set('api_key', environment.tmdbApiKey);
 
-    // Handle genre and year for discover endpoint
     if (searchParams.genreIds) {
       params = params.set('with_genres', searchParams.genreIds.join(','));
     }
