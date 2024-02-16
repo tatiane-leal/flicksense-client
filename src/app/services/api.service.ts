@@ -1,8 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Post } from '../../models/post.interface';
 import { Movie, MoviePayload } from '../../models/movie.interface';
+import { UserMovie } from '../../models/user.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -21,18 +24,37 @@ export class ApiService {
     return this._http.get(url);
   }
 
-  getUserProfile(userId: string | null): Observable<any> {
-    const url = `http://localhost:3000/profile/${userId}`;
-    return this._http.get(url);
-  }
-
   saveMovies(payload: MoviePayload): Observable<any> {
     const url = `http://localhost:3000/users`;
     return this._http.put(url, payload);
   }
 
-  getUserMovies(userId: string): Observable<Movie[]> {
+  getUserMovies(userId: string | undefined): Observable<Movie[]> {
     const url = `http://localhost:3000/users/${userId}`;
-    return this._http.get<Movie[]>(url);
+    return this._http
+      .get<UserMovie>(url)
+      .pipe(map((response: UserMovie) => response.movies));
+  }
+
+  getMovieReviewAnalysis(userReview: string) {
+    const payload = {
+      review: userReview,
+    };
+    const url = `http://localhost:3000/analysis`;
+    return this._http.post(url, payload);
+  }
+
+  updateMovieSentiment(
+    userId: string | undefined,
+    movieId: number,
+    sentiment_result: any
+  ): Observable<Movie[]> {
+    const url = `http://localhost:3000/users/${userId}/movies/${movieId}/sentiment`;
+
+    return this._http
+      .put<MoviePayload>(url, {
+        sentiment_result,
+      })
+      .pipe(map((response) => response.user.movies));
   }
 }

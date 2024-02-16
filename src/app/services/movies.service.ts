@@ -9,13 +9,13 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class MoviesService {
-  private apiUrl = 'https://api.themoviedb.org/3';
-  private apiKey = environment.tmdbApiKey;
+  private _apiUrl = 'https://api.themoviedb.org/3';
+  private _apiKey = environment.tmdbApiKey;
 
   constructor(private http: HttpClient) {}
 
   getPopularMovies(): Observable<Movie[]> {
-    const url = `${this.apiUrl}/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}`;
+    const url = `${this._apiUrl}/discover/movie?sort_by=popularity.desc&api_key=${this._apiKey}`;
     return this.http.get<MovieApiResponse>(url).pipe(
       map((response) => {
         return response.results;
@@ -27,7 +27,7 @@ export class MoviesService {
     const params = new HttpParams().set('api_key', environment.tmdbApiKey);
     return this.http
       .get<{ genres: { id: number; name: string }[] }>(
-        `${this.apiUrl}/genre/movie/list`,
+        `${this._apiUrl}/genre/movie/list`,
         { params }
       )
       .pipe(map((response) => response.genres));
@@ -46,7 +46,7 @@ export class MoviesService {
       params = params.set('year', searchParams.year);
     }
     return this.http
-      .get<MovieApiResponse>(`${this.apiUrl}/discover/movie`, { params })
+      .get<MovieApiResponse>(`${this._apiUrl}/discover/movie`, { params })
       .pipe(map((response) => response.results));
   }
 }
