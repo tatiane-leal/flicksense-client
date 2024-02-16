@@ -1,0 +1,20 @@
+<div class="dialog-padding">
+  <h3 mat-dialog-title>Movie title: {{ data.movieName }}</h3>
+
+  <div mat-dialog-content class="dialog-container">
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Type your thoughts regarding this movie!"
+        [(ngModel)]="userReview"
+      ></textarea>
+    </mat-form-field>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </div>
+
+  <div class="dialog-save-btn" mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="analyzeAndClose()">
+      Analyse!
+    </button>
+  </div>
+</div>
