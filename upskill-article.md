@@ -5,7 +5,7 @@
 
 ## **Introduction**
 
-The purpose of this article is sharing what I'm learning during my bench time at 3Pillar Global. I'm using this idle time to brush-up my existing Angular skills by discovering what's new on Angular 17 and also learning Express.js, MongoDB (NoSQL) and Node.js with the intent of becoming a Full Stack Developer and contribute even more on my next project assigment at 3Pillar Global.
+The purpose of this article is sharing what I'm learning during my bench time at 3Pillar Global. I'm using this idle time to brush-up my existing Angular skills by discovering what's new on Angular 17 and also learning Express.js, MongoDB (NoSQL) Node.js, SQL, AI Concepts and ReactJS with the intent of becoming a Full Stack Developer and contribute even more on my next project assigment at 3Pillar Global. This article focuses on the MEAN stack and upcoming articles will be dedicated to the other topics that I'm also learning on PluralSight and RocketSeat Bootcamp.
 
 ## **Technologies summary**
 
