@@ -133,11 +133,18 @@ Oh, and it also has a chat for you to interact with and besides explaining a blo
 
 ![Sentiment Analysis](https://i.ibb.co/tbXp03X/sentiment-analysis.png)
 
-I have recorded a demo of this first iteration and would be happy to share more details of how this project works under the hood. You can click here to watch it.
+I'll be recording a demo of this first iteration of FlickSense and would be happy to share more details of how this project works under the hood. Stay tuned!
 
 | GitHub Repository                                                      | README                                                                          |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | [FlickSense Client](https://github.com/tatiane-leal/flicksense-client) | [README](https://github.com/tatiane-leal/flicksense-client/blob/main/README.md) |
 | [FlickSense Server](https://github.com/tatiane-leal/flicksense-server) | [README](https://github.com/tatiane-leal/flicksense-server/blob/main/README.md) |
 
-Check out these other articles to find out what else I've been learning: - SQL (Comming soon) - AI Concepts (Coming soon) - Unit Testing with Tabnine (Coming soon) - Deploying FlickSense (Coming soon)
+> Notice that the Google Cloud API Key is stored in an environment variable that is not included in the https://github.com/tatiane-leal/flicksense-server repo. Once I get the project deployed, I'll share the link here. It will be easier to play with it! ;)
+
+Check out these other articles to find out what else I've been learning:
+
+- SQL (Coming soon)
+- AI Concepts (Coming soon)
+- Unit Testing with Tabnine (Coming soon)
+- Deploying FlickSense (Coming soon)
