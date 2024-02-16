@@ -108,7 +108,7 @@ this.myService.add(this.user.id).subscribe({
 });
 ```
 
-I love that tabnine sugests the new version. You read more on this [here](https://rxjs.dev/deprecations/subscribe-arguments).
+I love that Tabnine sugests the new version. You read more on this [here](https://rxjs.dev/deprecations/subscribe-arguments).
 and in case you are interested in trying it as well, you can install it from [here](https://www.tabnine.com/install).
 
 Oh, and it also has a chat for you to interact with and besides explaining a block of code to help onboard new developers, it can also generate unit tests for a particular block you select. This unit test feature I'll be trying soon and will share my experience here.
