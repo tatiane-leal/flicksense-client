@@ -2,6 +2,20 @@
   flex: 1 1 auto;
 }
 
-.clickable {
+.user-info-container {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  border: 3px solid #8d8d99;
+  margin-top: 22px;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+  object-fit: cover;
 }

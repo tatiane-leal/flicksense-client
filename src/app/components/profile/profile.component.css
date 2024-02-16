@@ -1,14 +1,16 @@
 .user-profile {
   display: flex;
 }
+
 .sidebar {
-  width: 250px;
-  height: 1000px;
+  width: 20rem;
 }
+
 .content {
   flex: 1;
   padding: 20px;
 }
+
 mat-card-avatar {
   width: 70px;
   height: 70px;
@@ -29,16 +31,180 @@ mat-card {
   justify-content: center;
 }
 
-
 .user-image-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
 }
 
 .user-picture {
-    width: 120px;
-    height: 120px;
+  width: 120px;
+  height: 120px;
+}
+
+.back-button,
+.back-text,
+.back-icon {
+  color: #fff;
+}
+
+.back-button {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.header-title {
+  margin-top: 30px;
+}
+
+ul {
+  display: flex;
+  flex: 1;
+  gap: 18px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 40px;
+}
+
+.poster-container {
+  width: 160px;
+  padding-top: 121.47%;
+  position: relative;
+}
+
+.poster-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.add-review-container {
+  background-color: black;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.movie-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.no-results-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 40px 0;
+}
+
+.no-results-container img {
+  width: 230px;
+  border-radius: 4px;
+}
+
+.poster-container.selected .poster-image,
+.add-review-container[disabled] {
+  opacity: 0.5;
+}
+
+.add-review-container[disabled] {
+  pointer-events: none;
+  color: gray;
+}
+
+.add-happy-border {
+  border: 10px solid green;
+  padding-bottom: 10px;
+}
+
+.add-neutral-border {
+  border: 10px solid gray;
+  padding-bottom: 10px;
+}
+
+.add-sad-border {
+  border: 10px solid red;
+  padding-bottom: 10px;
+}
+
+.sentiment-emoji {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.emoji {
+  width: 50px;
+}
+
+.sentiment-legend {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.chip {
+  padding: 10px 20px;
+  border-radius: 16px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.happy-chip {
+  background-color: green;
+}
+
+.neutral-chip {
+  background-color: gray;
+}
+
+.sentiment-legend {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chip {
+  padding: 5px 20px;
+  border-radius: 16px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: none;
+}
+
+.happy-chip {
+  background-color: green;
+}
+
+.neutral-chip {
+  background-color: gray;
+}
+
+.sad-chip {
+  background-color: red;
+}
+
+.instructions {
+  text-align: center;
 }
