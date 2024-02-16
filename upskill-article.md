@@ -149,3 +149,4 @@ Check out these other articles to find out what else I've been learning:
 - AI Concepts (Coming soon)
 - Unit Testing with Tabnine (Coming soon)
 - Deploying FlickSense (Coming soon)
+- Pomodoro web app with ReactJS (Coming soon)
