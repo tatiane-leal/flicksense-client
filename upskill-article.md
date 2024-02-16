@@ -116,7 +116,7 @@ Oh, and it also has a chat for you to interact with and besides explaining a blo
 
 # **Project Overview**
 
-**FlickSense** is a **MEAN** Full Stack Web Application that collects the user's review about a particular movie(s) and provides a sentiment analysis indicating if the user's review was happy, neutral or negative. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment and provide feedback (Happy, Neutral, Sad).
+**FlickSense** is a **MEAN** Full Stack Web Application that collects the user's review about a particular movie(s) and provides a sentiment analysis indicating if the user's review was happy, neutral or sad. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment and provide feedback (Happy, Neutral, Sad).
 
 ### Login
 
