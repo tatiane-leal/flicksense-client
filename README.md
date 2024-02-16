@@ -41,10 +41,10 @@ Please note that the Google Cloud API Key is stored in an environment variable t
 
 # Coming Soon
 
-## Running Unit Tests
+# Running Unit Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running End-to-End Tests
+# Running End-to-End Tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
