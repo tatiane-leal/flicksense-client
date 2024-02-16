@@ -6,7 +6,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenStorageService = inject(TokenStorageService);
 
   if (req.url.startsWith('https://api.themoviedb.org')) {
-    console.log('TMDB API Request', req);
     return next(req);
   }
 
@@ -16,7 +15,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   if (req.url.startsWith('http://localhost:3000')) {
-    console.log('Localhost Request with Auth', req);
     const authToken = tokenStorageService.getToken();
     const authReq = req.clone({
       setHeaders: {

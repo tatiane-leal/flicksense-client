@@ -4,12 +4,10 @@ import { MoviesService } from './movies.service'; // Substitua pelo caminho corr
 import { inject } from '@angular/core';
 
 export const moviesResolver: ResolveFn<any> = (route, state) => {
-  console.log("movies resolver called")
   const moviesService = inject(MoviesService);
 
-  // Use forkJoin para esperar ambos os Observables
   return forkJoin({
     popularMovies: moviesService.getPopularMovies(),
-    genres: moviesService.getGenres()
+    genres: moviesService.getGenres(),
   });
 };
