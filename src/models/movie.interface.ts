@@ -20,9 +20,15 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  sentiment_result: {
+    isHappy?: boolean;
+    isNeutral?: boolean;
+    isSad?: boolean;
+  };
 }
 
 export interface MoviePayload {
+  user?: any;
   id: string | undefined;
   movies: Movie[];
 }
