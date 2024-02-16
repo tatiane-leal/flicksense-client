@@ -5,16 +5,26 @@ import { inject } from '@angular/core';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenStorageService = inject(TokenStorageService);
 
-  const authReq = req.clone({
-    headers: req.headers.set(
-      'Authorization',
-      `Bearer ${tokenStorageService.getToken()}`
-    ),
-  });
-
-  if (!req.url.startsWith('https://api.themoviedb.org')) {
-    return next(authReq);
-  } else {
+  if (req.url.startsWith('https://api.themoviedb.org')) {
+    console.log('TMDB API Request', req);
     return next(req);
   }
+
+  if (req.url.endsWith('/analysis')) {
+    console.log('Analysis Request', req);
+    return next(req);
+  }
+
+  if (req.url.startsWith('http://localhost:3000')) {
+    console.log('Localhost Request with Auth', req);
+    const authToken = tokenStorageService.getToken();
+    const authReq = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+    return next(authReq);
+  }
+
+  return next(req);
 };
