@@ -9,6 +9,13 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ApiService } from '../../services/api.service';
+import { CurrentUser } from '../../../models/user.interface';
+import { AuthService } from '../../services/auth.service';
+import { Movie } from '../../../models/movie.interface';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ReviewDialogComponent } from '../dialog/review-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -22,39 +29,73 @@ import { ApiService } from '../../services/api.service';
     MatButtonModule,
     MatChipsModule,
     MatDividerModule,
-    MatCardModule, 
+    MatCardModule,
     MatGridListModule,
+    MatTooltipModule,
   ],
   templateUrl: './profile.component.html',
-  providers: [ApiService],
+  providers: [ApiService, AuthService],
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
   userID: string | null = '';
   profile: any = {};
+  currentUser!: CurrentUser | null;
+  userMovies$!: Observable<Movie[]>;
+  sentimentResult: { [key: number]: any } = {};
 
-  movies = [
-    { title: 'Movie 1', year: '2021', image: 'https://picsum.photos/200' },
-    { title: 'Movie 2', year: '2022', image: 'https://picsum.photos/200' },
-    // ... add more movies here
-  ];
-
-  constructor(private _route: ActivatedRoute, private _apiService: ApiService) {}
+  constructor(
+    private _apiService: ApiService,
+    private _authService: AuthService,
+    private _dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this._route.paramMap.subscribe((params) => {
-      this.userID = params.get('id');
-      console.log('profile user id is: ', this.userID);
+    this._authService.currentUser.subscribe((currentUser) => {
+      this.currentUser = currentUser;
+      console.log('profile', this.currentUser);
     });
 
-    this._apiService.getUserProfile(this.userID).subscribe({
-      next: (response) => {
-        console.log('profile response: ', response);
-        this.profile = response;
-      },
-      error: (error) => {
-        console.error('profile error: ', error);
-      },
+    this.userMovies$ = this._apiService.getUserMovies(
+      this.currentUser?.UserInfo?.id
+    );
+  }
+
+  fallbackImage(event: any, movie: any): void {
+    const backdropUrl = movie.backdrop_path
+      ? 'https://image.tmdb.org/t/p/w500' + movie.backdrop_path
+      : null;
+    if (backdropUrl) {
+      event.target.src = backdropUrl;
+    } else {
+      event.target.src =
+        'https://fastly.picsum.photos/id/299/160/250.jpg?hmac=aODh_nRRY3uV6gUfmbkzbuovqDnsinL1tA9b5fs0JKA';
+    }
+  }
+
+  shouldShowEllipsis(movieTitle: string) {
+    return movieTitle.length > 16;
+  }
+
+  addMovieReview(movie: Movie): void {
+    const dialogRef = this._dialog.open(ReviewDialogComponent, {
+      width: '400px',
+      height: '280px',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      data: { movieName: movie.title, movieId: movie.id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (!!result) {
+        this.sentimentResult[movie.id] = result.sentiment;
+        console.log(this.sentimentResult);
+        this.userMovies$ = this._apiService.updateMovieSentiment(
+          this.currentUser?.UserInfo?.id,
+          movie.id,
+          this.sentimentResult[movie.id]
+        );
+      }
     });
   }
 }

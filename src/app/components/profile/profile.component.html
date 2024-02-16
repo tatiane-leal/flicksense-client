@@ -1,41 +1,76 @@
+<div class="back-button">
+  <button mat-button routerLink="/">
+    <mat-icon class="back-icon">arrow_back</mat-icon>
+    <span class="back-text">Go back</span>
+  </button>
+</div>
+
 <div class="user-profile">
-  <div class="sidebar">
-    <mat-card>
-      <div class="user-image-container">
-        <img
-          class="user-picture"
-          mat-card-avatar
-          src="./../../../assets/images/profile.png"
-          alt="User Profile Picture"
-        />
+  <div class="content">
+    <h2>Discover the sentiment behind your review!</h2>
+
+    <ng-container *ngIf="userMovies$ | async as movies; else noResults">
+      <div class="sentiment-legend">
+        <div class="chip happy-chip">Happy</div>
+        <div class="chip neutral-chip">Neutral</div>
+        <div class="chip sad-chip">Sad</div>
       </div>
 
-      <mat-card-title>Tim Ny</mat-card-title>
-      <mat-card-subtitle>Developer</mat-card-subtitle>
-      <mat-list>
-        <mat-list-item>Email: {{ profile.email }}</mat-list-item>
-        <mat-list-item>Role: {{ profile.roles?.User }}</mat-list-item>
-      </mat-list>
-    </mat-card>
-  </div>
-  <div class="content">
-    <h2>User's Favorite Movies</h2>
-    <!-- <mat-chip-set aria-label="List of user interests">
-      <mat-chip color="primary">Product Infrastructure</mat-chip>
-      <mat-chip color="accent">Network Security</mat-chip>
-    </mat-chip-set> -->
-    <div class="movie-container">
-      <mat-grid-list cols="3" rowHeight="1:1.5">
-        <mat-grid-tile *ngFor="let movie of movies">
-          <mat-card>
-            <img mat-card-image [src]="movie.image" [alt]="movie.title" />
-            <mat-card-header>
-              <mat-card-title>{{ movie.title }}</mat-card-title>
-              <mat-card-subtitle>{{ movie.year }}</mat-card-subtitle>
-            </mat-card-header>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+      <p class="instructions">
+        On the movie poster, click the review icon to start.
+      </p>
+
+      <ul *ngIf="movies.length > 0; else noResults">
+        <li *ngFor="let movie of movies">
+          <div
+            [ngClass]="{
+              'add-happy-border': movie.sentiment_result.isHappy,
+              'add-neutral-border': movie.sentiment_result.isNeutral,
+              'add-sad-border': movie.sentiment_result.isSad
+            }"
+          >
+            <div class="poster-container">
+              <img
+                [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+                alt="{{ movie.title }}"
+                class="poster-image"
+                (error)="fallbackImage($event, movie)"
+              />
+            </div>
+            <div class="movie-info">
+              <span>
+                <button
+                  class="add-review-container"
+                  mat-icon-button
+                  color="accent"
+                  (click)="addMovieReview(movie)"
+                >
+                  <mat-icon>rate_review</mat-icon>
+                </button>
+              </span>
+            </div>
+          </div>
+          <p
+            class="movie-title"
+            *ngIf="shouldShowEllipsis(movie.title)"
+            matTooltip="{{ movie.title }}"
+          >
+            {{ movie.title | slice : 0 : 16 }}...
+          </p>
+          <p class="movie-title" *ngIf="!shouldShowEllipsis(movie.title)">
+            {{ movie.title }}
+          </p>
+        </li>
+      </ul>
+    </ng-container>
+
+    <ng-template #noResults>
+      <div class="no-results-container">
+        <img
+          src="./../../../assets/images/not-found.png"
+          alt="No results found"
+        />
+      </div>
+    </ng-template>
   </div>
 </div>
