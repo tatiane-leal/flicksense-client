@@ -1,13 +1,20 @@
 <div>
   <mat-toolbar *ngIf="authService.isAuthenticated">
-    <span class="clickable" routerLink="/"
-      >FlickSense<span>
-        | {{ (authService.currentUser | async)?.UserInfo?.name }}
-      </span></span
-    >
+    <div class="user-info-container" routerLink="/">
+      FlickSense |
+      <span>
+        <img
+          class="avatar"
+          src="./../assets/images/milla-chow.png"
+          alt="User Profile Picture"
+        />
+      </span>
+      <span>
+        {{ (authService.currentUser | async)?.UserInfo?.name }}
+      </span>
+    </div>
 
     <span class="example-spacer"></span>
-    <!-- <button mat-button (click)="navigateToRegister()">Register</button> -->
     <button
       mat-button
       *ngIf="!authService.isAuthenticated"
@@ -15,9 +22,6 @@
     >
       Register
     </button>
-    <!-- <button mat-button routerLink="/login">Login</button> -->
-    <!-- <button mat-button *ngIf="authService.isAuthenticated" routerLink="/users">Users</button>
-  <button mat-button *ngIf="authService.isAuthenticated" [routerLink]="['/profile/65c801b331ebc75593b37e4f']">Profile</button> -->
     <button
       mat-button
       *ngIf="authService.isAuthenticated"
