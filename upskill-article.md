@@ -1,12 +1,11 @@
 # Tatiane Sala - Upskill (MEAN Stack) + Tabnine as AI Assistant
 
 [![MongoDB](https://img.shields.io/badge/-MongoDB-4DB33D?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)[![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.io/)[![Node.js](https://img.shields.io/badge/-Node.js-43853d?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)![JWT](https://img.shields.io/badge/-JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-![TMDB](https://img.shields.io/badge/-TMDB-01D277?style=flat-square&logo=themoviedatabase&logoColor=white)![Google Cloud Natural Language](https://img.shields.io/badge/-Cloud%20Natural%20Language-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
-[![Tabnine](https://img.shields.io/badge/-Tabnine-6C63FF?style=flat-square&logo=tabnine&logoColor=white)](https://www.tabnine.com)
+![TMDB](https://img.shields.io/badge/-TMDB-01D277?style=flat-square&logo=themoviedatabase&logoColor=white)![Google Cloud Natural Language](https://img.shields.io/badge/-Cloud%20Natural%20Language-4285F4?style=flat-square&logo=googlecloud&logoColor=white)[![Tabnine](https://img.shields.io/badge/-Tabnine-6C63FF?style=flat-square&logo=tabnine&logoColor=white)](https://www.tabnine.com)
 
 ## **Introduction**
 
-The purpose of this article is sharing what I'm learning during my bench time at 3Pillar Global. I'm using this idle time to brush-up my existing Angular skills by discovering what's new on Angular 17 and also learning Express.js, MongoDB (NoSQL) and Node.js with the intent of becoming a Full Stack Developer and contribute even more on my next project assigment at 3Pillar Global.
+The purpose of this article is sharing what I'm learning during my bench time at 3Pillar Global. I'm using this idle time to brush-up my existing Angular skills by discovering what's new on Angular 17 and also learning Express.js, MongoDB (NoSQL) Node.js, SQL, AI Concepts and ReactJS with the intent of becoming a Full Stack Developer and contribute even more on my next project assigment at 3Pillar Global. This article focuses on the MEAN stack and upcoming articles will be dedicated to the other topics that I'm also learning on PluralSight and RocketSeat Bootcamp.
 
 ## **Technologies summary**
 
@@ -110,14 +109,14 @@ this.myService.add(this.user.id).subscribe({
 });
 ```
 
-I love that Tabnine sugests the new version. You read more on this [here](https://rxjs.dev/deprecations/subscribe-arguments).
-and in case you are interested in trying it as well, you can install it from [here](https://www.tabnine.com/install).
+I love that Tabnine sugests the new version. You can read more on this deprecation suject here [here](https://rxjs.dev/deprecations/subscribe-arguments).
+and in case you are interested in trying Tabnine as well, you can install it on your preferred IDE from [here](https://www.tabnine.com/install).
 
 Oh, and it also has a chat for you to interact with and besides explaining a block of code to help onboard new developers, it can also generate unit tests for a particular block you select. This unit test feature I'll be trying soon and will share my experience here.
 
 # **Project Overview**
 
-**FlickSense** is a **MEAN** Full Stack Web Application that collects the user's review about a particular movie(s) and provides a sentiment analysis indicating if the user's review was happy, neutral or negative. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment and provide feedback (Happy, Neutral, Sad).
+**FlickSense** is a **MEAN** Full Stack Web Application that collects the user's review about a particular movie(s) and provides a sentiment analysis indicating if the user's review was happy, neutral or sad. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment and provide feedback (Happy, Neutral, Sad).
 
 ### Login
 
@@ -150,3 +149,4 @@ Check out these other articles to find out what else I've been learning:
 - AI Concepts (Coming soon)
 - Unit Testing with Tabnine (Coming soon)
 - Deploying FlickSense (Coming soon)
+- Pomodoro web app with ReactJS (Coming soon)
