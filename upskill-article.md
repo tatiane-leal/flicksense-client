@@ -39,7 +39,7 @@ In case you want to give Tabnine a try, you can stall the Basic (free) version o
 
 I installed Tabnine Basic (free) version on my VS Code IDE to try it out and I wanted to experiment how it would help me. So I started working on a personal MEAN Stack Web Application project called FlickSense. To add context to that, this web app collects the user's review about a particular movie and provides a sentiment analysis indicating if the user's review was happy, neutral or sad. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment, provides feedback on it and as a result, it highlights the movie with a green, gray or red border respectively.
 
-Here's a simple diagram illustrating the structure of the project, along with a brief overview of the technologies used.
+Here's a simple diagram illustrating the basics of the project, along with a brief overview of the technologies used.
 
 ![plot](./src/assets/images/app-diagram.png)
 <p align="center">
