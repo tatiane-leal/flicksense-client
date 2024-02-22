@@ -1,91 +1,102 @@
-# Tatiane Sala - Upskill (MEAN Stack) + Tabnine as AI Assistant
+# Using Tabnine an AI-powered tool to develop FlickSense, a MEAN Stack Web Application
 
-[![MongoDB](https://img.shields.io/badge/-MongoDB-4DB33D?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)[![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.io/)[![Node.js](https://img.shields.io/badge/-Node.js-43853d?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)![JWT](https://img.shields.io/badge/-JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-![TMDB](https://img.shields.io/badge/-TMDB-01D277?style=flat-square&logo=themoviedatabase&logoColor=white)![Google Cloud Natural Language](https://img.shields.io/badge/-Cloud%20Natural%20Language-4285F4?style=flat-square&logo=googlecloud&logoColor=white)[![Tabnine](https://img.shields.io/badge/-Tabnine-6C63FF?style=flat-square&logo=tabnine&logoColor=white)](https://www.tabnine.com)
+[![Tabnine](https://img.shields.io/badge/-Tabnine-6C63FF?style=flat-square&logo=tabnine&logoColor=white)](https://www.tabnine.com)[![MongoDB](https://img.shields.io/badge/-MongoDB-4DB33D?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)[![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.io/)[![Node.js](https://img.shields.io/badge/-Node.js-43853d?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/) ![JWT](https://img.shields.io/badge/-JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)![TMDB](https://img.shields.io/badge/-TMDB-01D277?style=flat-square&logo=themoviedatabase&logoColor=white)![Google Cloud Natural Language](https://img.shields.io/badge/-Cloud%20Natural%20Language-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+
+## Table of Contents
+1. [Tabnine's Overview](#1-tabnines-overview)
+2. [Benefits](#2-benefits)
+3. [My Thoughts Using It (+ Amazing Chat Shortcuts)](#3-my-thoughts-using-it--amazing-chat-shortcuts)
+4. [Concluding Thoughts](#4-concluding-thoughts)
+5. [References](#5-references)
 
 ## **Introduction**
 
-The purpose of this article is sharing what I'm learning during my bench time at 3Pillar Global. I'm using this idle time to brush-up my existing Angular skills by discovering what's new on Angular 17 and also learning Express.js, MongoDB (NoSQL) Node.js, SQL, AI Concepts and ReactJS with the intent of becoming a Full Stack Developer and contribute even more on my next project assigment at 3Pillar Global. This article focuses on the MEAN stack and upcoming articles will be dedicated to the other topics that I'm also learning on PluralSight and RocketSeat Bootcamp.
+The purpose of this article is to share my experience using Tabnine, an AI-powered code completion tool while developing a personal MEAN stack project which I called FlickSense. I'll be focusing on the following topics:
 
-## **Technologies summary**
+1. Tabnine's Overview;
+2. Benefits;
+3. My Thoughts Using It (+ Amazing Chat Shortcuts)
+4. Concluding Thoughts;
+5. References.
 
-To acquire knowledge in the MEAN stack, discover latest on Angular's new release and try Tabnine for VS Code, I opted for developing a Full Stack web application which I named **FlickSense**. Here's an overview of what it helped me learn so far:
+## **1. Tabnine's Overview**
+Tabnine is an AI-powered code completion tool that enhances software development efficiency by providing real-time, context-aware coding suggestions across a wide range of programming languages. It integrates with many popular IDEs and code editors, offering features like code snippets and customizable settings to match individual coding styles. Tabnine prioritizes privacy with options for local processing, making it a secure choice for developers concerned about code privacy. Overall, Tabnine aims to streamline the coding process, allowing developers to focus on solving complex problems more effectively. 
 
-# **Backend:**
+If your curious, "local processing" means that the developer can choose to set Tabnine's Model Serving Mode to Local, Hybrid(Recommended) or Cloud and they also state on their website that:
+<br>
 
-### Node.js
+ >Although we recommend keeping the hybrid model enabled, you can easily switch to cloud or local mode at any time. Just visit the Tabnine Hub to change the default configuration.
 
-- **Core Modules (HTTP, FS, Path)**: Fundamental Node.js modules enabling the creation of web servers (`HTTP` when not using Express.js), file system operations (`FS`), and handling file paths (`Path`).
-- **NPM (Node Package Manager)**: The package manager for Node.js, used to install and manage third-party modules and dependencies.
-- **Async/Await**: Syntax used to write asynchronous code in a more synchronous fashion, simplifying the handling of asynchronous operations.
-- **Error Handling and Logging**: Techniques to effectively catch and manage errors in a Node.js application and record them for debugging and monitoring purposes.
-- **Spread and Rest operators**: ES6 syntax for expanding elements into individual items (`Spread`) and combining multiple elements into a single array (`Rest`).
+ <br>
 
-### Express.js
+<p align="center">
+  <img src="./src/assets/images/model-mode.gif" width="75%" />
+  <br>
+  <em> Tabnine Hub on VS Code</em>
+</p>
 
-- **Server Setup and Configuration with Express.js**: Establishing a server and configuring it using Express.js, a minimal and flexible Node.js web application framework.
-- **CORS / Allowed Origins**: Setting up Cross-Origin Resource Sharing in Express.js to control which domains are permitted to access resources on the server.
-- **Middlewares**: Functions that have access to the request and response objects in Express.js, and can modify them or trigger the next function in the stack.
-- **RESTful API Development (Adding CRUD endpoints (get / post / put / delete)**: Designing and implementing API endpoints following REST principles for creating, reading, updating, and deleting resources.
+>Tabnine continues to place the highest value on your privacy, never storing nor sharing any of your code. All communication with the cloud is strongly encrypted.
 
-### MongoDB
+## **2. Benefits**
+Key benefits include increased productivity through faster coding, reduced errors, valuable learning aid for new team members as it can explain blocks of code, help in writting unit tests and the paid version can go even further depending on the option you choose (Pro/Enterprise) with the Enterprise one being able to provide Al chat agents personalized to your entire codebase, also provide Al models aware of your corporate standards and guidelines, integration with JIRA/Confluence and much more! You can click [here](https://www.tabnine.com/pricing) to get more details on the different pricing and features for each tier available!
 
-- **Database Connection**: Establishing a connection between a Node.js application and a MongoDB database.
-- **Mongo DB Schemas**: Defining the structure of documents within a MongoDB collection using schemas.
-- **Mongo DB CRUD Operations (Find / FindOne)**: Implementing create, read, update, and delete operations in MongoDB, with methods like `find` and `findOne` for retrieving documents.
+In case you want to give Tabnine a try, you can stall the Basic (free) version on your preferred IDE from [here](https://www.tabnine.com/install).
 
-### JWT Authentication
+# **3. My Thoughts Using It (+ Amazing Chat Shortcuts)**
 
-- **Authentication and Authorization (JWT) with Bcrypt**: Securing a Node.js application by implementing JSON Web Token-based authentication and using Bcrypt for password hashing.
+I installed Tabnine Basic (free) version on my VS Code IDE to try it out and I wanted to experiment how it would help me. So I started working on a personal MEAN Stack Web Application project called FlickSense. To add context to that, this web app collects the user's review about a particular movie and provides a sentiment analysis indicating if the user's review was happy, neutral or sad. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment, provides feedback on it and as a result, it highlights the movie with a green, gray or red border respectively.
 
-### Env
+Here's a simple diagram illustrating the structure of the project, along with a brief overview of the technologies used.
 
-- **Setting up Environment Variables**: Using environment variables to manage configuration settings and increase security of secret keys.
+![plot](./src/assets/images/app-diagram.png)
+<p align="center">
+  <em>MEAN Stack Architechure Diagram - Reference Source: <a href="https://www.hostingsewa.com/blog/what-is-mean-stack-development-architecture">HostinSewa Blog</a></em>
+</p>
 
-### API Development and Testing Tools
+<br>
 
-- **Postman**: A comprehensive API platform for building, testing, documenting, and sharing APIs, featuring extensive collaboration tools and support for multiple protocols.
+And here are some screenshots of how it is looking like at the moment:
 
-# **Frontend:**
+<br>
 
-### Angular 17 (Brushing up and Discovering new features)
+#### Login
 
-- **Stand Alone Components**: A new feature allowing components to be declared and used without an accompanying Angular module, simplifying app architecture.
-- **Resolvers**: Services that pre-fetch data before activating a route, ensuring components have data upon initialization.
-- **Route Guards**: Techniques for controlling navigation away from or to a route based on certain conditions, enhancing security and user experience.
-- **ng-template and ng-container**: Angular directives for dynamic HTML rendering without creating additional DOM elements, aiding in conditional and structural templating.
-- **HTTP Interceptors**: Services that intercept and modify HTTP requests and responses globally, useful for tasks like adding headers or handling errors.
-- **RxJS operators**: Functional programming tools used in Angular for transforming, combining, and managing asynchronous streams of data.
-- **Reactive Forms**: A model-driven approach to handling form inputs and validation, offering more control and flexibility.
-- **Angular Material Components**: A collection of high-quality UI components built for Angular, facilitating the development of consistent, visually appealing interfaces.
-- **How to inject Services without NgModule**: Techniques for providing services in Angular 17 without the need for an NgModule, streamlining service injection.
-- **How to provide routes for the entire app without having the AppModule and RouterModule present**: Methods for defining application-wide routes in Angular 17 without relying on modules, enhancing the application.
-- **How to provide Interceptors**: Strategies for registering HTTP interceptors globally or for specific modules in Angular applications.
-- **How to avoid creating a new local instance of a service that was already provided in root**: Best practices for ensuring a single instance of a service is used application-wide, preventing duplicate instances.
-- **TypeScript**: Used for type checking and interfaces.
+![Login](https://i.ibb.co/C1gGwL7/login.pngg)
 
-#### Angular Material
+<br>
 
-- **Components**: Utilizing a wide range of UI components for rapid development.
-- **Form Controls**: Managing form inputs and validation with pre-built components.
-- **Layout**: Creating responsive layouts with Angular Flex-Layout integration.
+#### Home Page
 
-#### Flexbox
+![Home page](https://i.ibb.co/5xY6MKR/homepage.png)
 
-- **Flex Container vs. Flex Items**: Differentiating parent (container) and child (items) flex properties.
-- **Flex Direction**: Setting item flow with `flex-direction`.
-- **Alignment**: Spacing and aligning items with `justify-content` and `align-items`.
-- **Flex Wrap**: Managing multi-line item layouts with `flex-wrap`.
-- **Flex Properties**: Adjusting item size and space distribution with `flex-grow`, `flex-shrink`, and `flex-basis`.
+<br>
 
-# **Tabnine on VS Code:**
+#### Filtering
 
-From what I've experimented with Tabnine so far (the free VS Code extension version), it is pretty good in auto completing code and it gets even more precise when you already have some code base for it to work on top of, so having this AI tool on my FlickSense code base was pretty neat!
+![Home page](https://i.ibb.co/hL2n5X0/filtering-found.png)
 
-Here's a short example I recorded using Tabnine's code completion to update the movie sentiment:
+<br>
+
+#### Sentiment Analysis
+
+![Sentiment Analysis](https://i.ibb.co/tbXp03X/sentiment-analysis.png)
+
+<br>
+
+I'll be adding a demo of it in the near future so stay tuned!
+
+<br>
+
+Now, getting back to our main focus here which is using GenAI on the code base, from what I've experimented with Tabnine so far, it is pretty good in auto completing code and its suggestions get even more precise when you already have a solid code base for it to work on top of. So as my code base gets bigger, the suggestions will start to better align with the context I'm working on. However, I already got a few things to share.
+
+This for example, is a quick gif I recorded showing Tabnine's auto-completion in action while adding an API call to update the movie sentiment:
+
 [![Tabnine.gif](https://s9.gifyu.com/images/SCeJE.gif)](https://gifyu.com/image/SCeJE)
+<br>
 
-You might have seen that some signatures of the RxJs `subscribe` are deprecated. For example:
+If you work with RxJS, you might have seen that some signatures of the RxJs `subscribe` are deprecated. For example:
+
+<br>
 
 ```javascript
 // Deprecated:
@@ -99,6 +110,8 @@ this.myService.add(this.user.id).subscribe(
 );
 ```
 
+<br>
+
 ```javascript
 // New way of using it:
 this.myService.add(this.user.id).subscribe({
@@ -109,44 +122,100 @@ this.myService.add(this.user.id).subscribe({
 });
 ```
 
-I love that Tabnine sugests the new version. You can read more on this deprecation suject here [here](https://rxjs.dev/deprecations/subscribe-arguments).
-and in case you are interested in trying Tabnine as well, you can install it on your preferred IDE from [here](https://www.tabnine.com/install).
+<br>
 
-Oh, and it also has a chat for you to interact with and besides explaining a block of code to help onboard new developers, it can also generate unit tests for a particular block you select. This unit test feature I'll be trying soon and will share my experience here.
+I love that Tabnine sugests the new `subscribe` syntax as you can spot on the gif above. You can read more on this deprecation suject [here](https://rxjs.dev/deprecations/subscribe-arguments).
 
-# **Project Overview**
+<br>
 
-**FlickSense** is a **MEAN** Full Stack Web Application that collects the user's review about a particular movie(s) and provides a sentiment analysis indicating if the user's review was happy, neutral or sad. To do that, the application integrates 3rd party API's such as TMDB (The Movie Database) for listing movies and Google Cloud Natural Language for analysing user's review sentiment and provide feedback (Happy, Neutral, Sad).
+In this other example, I got a squiggly line error when declaring Angular's reactive `FormGroup`. I noticed under `Quick Fix` that the option `Fix with Tabnine` appeared
 
-### Login
+<br>
 
-![Login](https://i.ibb.co/C1gGwL7/login.pngg)
+<p align="center">
+  <img src="https://github.com/tatiane-leal/flicksense-client/assets/26888434/4055ed27-7a64-4b6b-a17c-241dfed952f7" width="75%" />
+</p>
 
-### Home Page
+<br>
 
-![Home page](https://i.ibb.co/5xY6MKR/homepage.png)
+And once I clicked it, the `TABNINE AI: CHAT` opened up in the left side panel showing me how to fix this line.
+<br>
+<p align="center">
+  <img src="https://github.com/tatiane-leal/flicksense-client/assets/26888434/22152bd5-0a63-4bd4-b34e-b0aac9cf3ea3" width="65%" />
+</p>
 
-### Filtering
+<br>
 
-![Home page](https://i.ibb.co/hL2n5X0/filtering-found.png)
+After applying it's suggestion, the squiggly error line went away.
 
-### Sentiment Analysis
+<p align="center">
+  <img src="https://github.com/tatiane-leal/flicksense-client/assets/26888434/997c27b0-d497-4329-8a38-00eb93e85f3a" width="65%" />
+</p>
 
-![Sentiment Analysis](https://i.ibb.co/tbXp03X/sentiment-analysis.png)
+Oh and the auto-complete feature is a big help but it can sometimes lead us down the wrong path. For instance, I was working on HTTP requests in an Angular Service and got a suggestion to import `Http` from `@angular/http`. Since this package is deprecated, it triggered an error. So after clicking `Fix with Tabnine`, I hoped for the right import suggestion, which it eventually provided, but only after recommending the installation of the deprecated package and importing `HttpClientModule`, which is not the case here since this module should be provided in the root module `app.module.ts` for non standalone components and inside `app.config.ts` as `provideHttpClient(withInterceptors([authInterceptor])),` for standalone components. It would also be great if it could recognize that `@angular/common` package is already installed by default with Angular CLI projects, so no need to install any package here. So basically the suggestion I was aiming for was to import `HttpClient` from `@angular/common/http`, so it didn't help much here, but as I mentioned before, it might be due to the fact that my project size is not that big for it to get more detailed context and I'm also using the free version here, so I can't expect it to go "above and beyond", but still, as developers, it's crucial we stay vigilant with these suggestions to ensure they align with our requirement needs.
 
-I'll be recording a demo of this first iteration of FlickSense and would be happy to share more details of how this project works under the hood. Stay tuned!
+<br>
 
-| GitHub Repository                                                      | README                                                                          |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [FlickSense Client](https://github.com/tatiane-leal/flicksense-client) | [README](https://github.com/tatiane-leal/flicksense-client/blob/main/README.md) |
-| [FlickSense Server](https://github.com/tatiane-leal/flicksense-server) | [README](https://github.com/tatiane-leal/flicksense-server/blob/main/README.md) |
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/cb44a6a1-37ae-41cd-908e-bfb9ea5551ec)
 
-> Notice that the Google Cloud API Key is stored in an environment variable that is not included in the https://github.com/tatiane-leal/flicksense-server repo. Once I get the project deployed, I'll share the link here. It will be easier to play with it! ;)
+<br>
 
-Check out these other articles to find out what else I've been learning:
+Now, speaking about chat, Tabnine provides some easy shortcuts for you to interact with its AI CHAT by placing a section right on top of your code blocks as you can see in the image below:
 
-- SQL (Coming soon)
-- AI Concepts (Coming soon)
-- Unit Testing with Tabnine (Coming soon)
-- Deploying FlickSense (Coming soon)
-- Pomodoro web app with ReactJS (Coming soon)
+<br>
+
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/a5cec479-7c7a-4bb6-92b2-d42b60513537)
+
+
+<br>
+
+That's why it can significantly ease the onboarding process for new developers. By clicking 'explain', devs can quickly grasp how each block works! For instance, when I requested an explanation for the `shouldShowEllipsis` function, it provided a clear explanation in just a few seconds:
+
+<br>
+
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/9be4f50d-721c-43e6-9eaf-b9eae9725162)
+
+
+<br>
+
+It can also streamline the unit testing process with a single click on the `tabnine: test` option. What's particularly interesting here is that it recognizes Angular CLI's default use of Jasmine for testing, and accordingly, it generated a test case example using it, which is pretty neat! &#11088;
+
+<br>
+
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/05bdf62a-75d2-42d9-8f4d-69e0891c750a)
+
+<br>
+
+And it can even get a particular code block documented using `JSDoc`
+
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/f8ebeb10-acd5-410b-9800-9f2e29eb5259)
+
+<br>
+
+Finally, if you click `ask`, it opens up a prompt at the top for you to type your question:
+
+<br>
+
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/cd3eddd0-eaa9-4c84-a6c8-b57a8b800668)
+
+<br>
+
+After typing your question and hitting `Enter`, it opens up the chat and gives you the answer:
+
+<br>
+
+![image](https://github.com/tatiane-leal/flicksense-client/assets/26888434/9d2ab4a1-e59d-4f1c-9e69-8628a25c82bb)
+
+You can go creative here and it will try to answer to the best of its knowledge and also relying on your code base! If you want to check out more details about Tabnine's Chat, check out this really cool article [here](https://www.tabnine.com/blog/say-hello-to-tabnine-chat/) 
+
+<br>
+
+# **4. Concluding Thoughts**
+Tabnine has transformed my coding process, using it on my personal project was a blast! The way it offers instant code suggestions, like automatically providing the subscribe syntax, was incredibly useful. It's also quite impressive how it anticipates the services or endpoints I might need and even though there were a few misses in its suggestions——likely due to the limitations of the free version and the small size of my code base——the accuracy was remarkable most of the time and it even picked up on using Jasmine for my unit tests, setting up all the necessary boilerplate needed which I was quite impressed. The experience with the free version alone has been great, making me curious about the capabilities of the Pro and Enterprise versions as they likely offer even more ways to streamline the Software Development Lifecycle on commercial projects with a big code base and a lot of APIs, repos and documentation for it to act upon. So yes, it's definitely worth checking out and as developers, we should always keep in mind that we need to analyze its suggestions to ensure they meet our requirements and make this a win-win situation for both developers and the overall project.
+
+# **5. References**
+- Tabnine documentation - [Tabnine Official Docs](https://www.tabnine.com/docs)
+- JSDoc guide - [Use JSDoc](https://jsdoc.app/)
+- Angular documentation - [Angular.io](https://angular.io/docs)
+- RxJS deprecations - [RxJS Deprecations](https://rxjs.dev/deprecations/subscribe-arguments)
+- Tabnine Chat Introduction - [Say Hello to Tabnine Chat](https://www.tabnine.com/blog/say-hello-to-tabnine-chat/)
