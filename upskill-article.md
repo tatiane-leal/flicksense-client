@@ -54,7 +54,7 @@ And (just out of curiosity) here are some screenshots of how it is looking like 
 
 #### Login
 
-![Login](https://i.ibb.co/C1gGwL7/login.pngg)
+![Login](https://i.ibb.co/C1gGwL7/login.png)
 
 <br>
 
