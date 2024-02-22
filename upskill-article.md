@@ -127,7 +127,7 @@ In this other example, I got a squiggly line error when declaring Angular's reac
 
 <br>
 
-And once I clicked it, the `TABNINE AI: CHAT` opened up in the left side panel showing me how to fix this line.
+And once I clicked it, the `TABNINE AI: CHAT` opened up in the left side panel with a suggestion on how to fix this line.
 <br>
 <p align="center">
   <img src="https://github.com/tatiane-leal/flicksense-client/assets/26888434/22152bd5-0a63-4bd4-b34e-b0aac9cf3ea3" width="65%" />
