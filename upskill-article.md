@@ -208,7 +208,10 @@ Tabnine has transformed my coding process, using it on my personal project was a
 
 # **5. References**
 - Tabnine documentation - [Tabnine Official Docs](https://www.tabnine.com/docs)
+- HostingSewa MEAN Architeture - [Hosting Sewa Blog](https://www.hostingsewa.com/blog/what-is-mean-stack-development-architecture)
+- Tabnine Pricing - [Tabnine Pricing](https://www.tabnine.com/pricing)
 - JSDoc guide - [Use JSDoc](https://jsdoc.app/)
 - Angular documentation - [Angular.io](https://angular.io/docs)
 - RxJS deprecations - [RxJS Deprecations](https://rxjs.dev/deprecations/subscribe-arguments)
 - Tabnine Chat Introduction - [Say Hello to Tabnine Chat](https://www.tabnine.com/blog/say-hello-to-tabnine-chat/)
+
