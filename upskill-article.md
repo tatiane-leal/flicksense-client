@@ -141,7 +141,7 @@ After applying it's suggestion, the squiggly error line went away.
   <img src="https://github.com/tatiane-leal/flicksense-client/assets/26888434/997c27b0-d497-4329-8a38-00eb93e85f3a" width="65%" />
 </p>
 
-Oh and the auto-complete feature is a big help but it can sometimes lead us down to a "unhappy path". For instance, I was creating a new Angular Service to handle HTTP requests and got a suggestion to import `Http` from `@angular/http`. Since this package was not installed, it triggered an error. However, I did know that this package is deprecated. So after clicking `Fix with Tabnine`, I hoped for the right import suggestion, which is import `HttpClient` from `@angular/common/http` but instead it  recommended the installation of the deprecated package and mistakenly suggested importing `HttpClientModule` inside the service, but this module should actually be imported at a root level. So it didn't help much here, but as I mentioned before, it might be due to the fact that my project size is not that big for it to get more detailed context and I'm also using the free basic version, so I can't expect it to go "above and beyond", but still, as developers, it's crucial we stay vigilant with these suggestions to ensure they align with our requirement needs.
+Oh and the auto-complete feature is a big help but it can sometimes lead us down to a "unhappy path". For instance, I was creating a new Angular Service to handle HTTP requests and got a suggestion to import `Http` from `@angular/http`. Since this package was not installed, it triggered an error. However, I did know that this package is deprecated. So after clicking `Fix with Tabnine`, I hoped for the right import suggestion, which is import `HttpClient` from `@angular/common/http` but instead it  recommended the installation of the deprecated package and mistakenly suggested importing `HttpClientModule` inside the service, but this module should actually be imported at a root level inside `app.config.ts` for standalone components. So it didn't help much here, but as I mentioned before, it might be due to the fact that my project size is not that big for it to get more detailed context and I'm also using the free basic version, so I can't expect it to go "above and beyond", but still, as developers, it's crucial we stay vigilant with these suggestions to ensure they align with our requirement needs.
 
 <br>
 
@@ -210,4 +210,5 @@ Tabnine has transformed my coding process, using it on my personal project was a
 - Angular documentation - [Angular.io](https://angular.io/docs)
 - RxJS deprecations - [RxJS Deprecations](https://rxjs.dev/deprecations/subscribe-arguments)
 - Tabnine Chat Introduction - [Say Hello to Tabnine Chat](https://www.tabnine.com/blog/say-hello-to-tabnine-chat/)
+- Angular ApplicationConfig API [Angular ApplicationConfig API](https://angular.io/api/core/ApplicationConfig)
 
