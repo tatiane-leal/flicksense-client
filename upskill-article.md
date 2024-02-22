@@ -48,7 +48,7 @@ Here's a simple diagram illustrating the structure of the project, along with a 
 
 <br>
 
-And here are some screenshots of how it is looking like at the moment:
+And (just out of curiosity) here are some screenshots of how it is looking like at the moment:
 
 <br>
 
@@ -76,11 +76,7 @@ And here are some screenshots of how it is looking like at the moment:
 
 <br>
 
-I'll be adding a demo of it in the near future so stay tuned!
-
-<br>
-
-Now, getting back to our main focus here which is using GenAI on the code base, from what I've experimented with Tabnine so far, it is pretty good in auto completing code and its suggestions get even more precise when you already have a solid code base for it to work on top of. So as my code base gets bigger, the suggestions will start to better align with the context I'm working on. However, I already got a few things to share.
+Now, getting back to our main focus here which is basically using GenAI on the code base, from what I've experimented with Tabnine so far, it is pretty good in auto completing code and its suggestions get even more precise when you already have a solid code base for it to work on top of. So as my code base gets bigger, the suggestions will start to better align with the context I'm working on. However, I already got a few things to share.
 
 This for example, is a quick gif I recorded showing Tabnine's auto-completion in action while adding an API call to update the movie sentiment:
 
@@ -204,7 +200,7 @@ You can go creative here and it will try to answer to the best of its knowledge 
 <br>
 
 # **4. Concluding Thoughts**
-Tabnine has transformed my coding process, using it on my personal project was a blast! The way it offers instant code suggestions, like automatically providing the subscribe syntax, was incredibly useful. It's also quite impressive how it anticipates the services or endpoints I might need and even though there were a few misses in its suggestions—likely due to the limitations of the free version and the small size of my code base—the accuracy was remarkable most of the time and it even picked up on using Jasmine for my unit tests, setting up all the necessary boilerplate needed which I was quite impressed. The experience with the free version alone has been great, making me curious about the capabilities of the Pro and Enterprise versions as they likely offer even more ways to streamline the Software Development Lifecycle on commercial projects with a big code base and a lot of APIs, repos and documentation for it to act upon. So yes, it's definitely worth checking out and as developers, we should always keep in mind that we need to analyze its suggestions to ensure they meet our requirements and make this a win-win situation for both developers and the overall project.
+Tabnine has transformed my coding process, using it on my personal project was a blast! The way it offers instant code suggestions, like automatically providing the subscribe syntax, was incredibly useful. It's also quite impressive how it anticipates the services or endpoints I might need and even though there were a few misses in its suggestions—likely due to the limitations of the free version and the small size of my code base—the accuracy was remarkable most of the time and it even picked up on using Jasmine for my unit tests, setting up all the necessary boilerplate needed which I was quite impressed. The experience with the free version alone has been great, making me curious about the capabilities of the Pro and Enterprise versions as they likely offer even more ways to streamline the Software Development Lifecycle on commercial projects with a big code base and a lot of APIs, repos and documentation for it to act upon. So yes, it's definitely worth checking out and I'll definetely continue using it on the next iterations of FlickSense and for my next personal projects and when using it on a commercial project, always double check its suggestions even more carefully to ensure they meet the requirements and make this a win-win situation for both me as a developer and the overall project.
 
 # **5. References**
 - Tabnine documentation - [Tabnine Official Docs](https://www.tabnine.com/docs)
