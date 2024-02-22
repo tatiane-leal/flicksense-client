@@ -2,13 +2,6 @@
 
 [![Tabnine](https://img.shields.io/badge/-Tabnine-6C63FF?style=flat-square&logo=tabnine&logoColor=white)](https://www.tabnine.com)[![MongoDB](https://img.shields.io/badge/-MongoDB-4DB33D?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)[![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.io/)[![Node.js](https://img.shields.io/badge/-Node.js-43853d?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/) ![JWT](https://img.shields.io/badge/-JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)![TMDB](https://img.shields.io/badge/-TMDB-01D277?style=flat-square&logo=themoviedatabase&logoColor=white)![Google Cloud Natural Language](https://img.shields.io/badge/-Cloud%20Natural%20Language-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
 
-## Table of Contents
-1. [Tabnine's Overview](#1-tabnines-overview)
-2. [Benefits](#2-benefits)
-3. [My Thoughts Using It (+ Amazing Chat Shortcuts)](#3-my-thoughts-using-it--amazing-chat-shortcuts)
-4. [Concluding Thoughts](#4-concluding-thoughts)
-5. [References](#5-references)
-
 ## **Introduction**
 
 The purpose of this article is to share my experience using Tabnine, an AI-powered code completion tool while developing a personal MEAN stack project which I called FlickSense. I'll be focusing on the following topics:
