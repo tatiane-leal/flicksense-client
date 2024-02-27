@@ -6,37 +6,62 @@
     (ngSubmit)="onSearch()"
     class="search-form-container"
   >
-    <mat-form-field appearance="fill" class="search-form-field">
-      <mat-label>Genre</mat-label>
-      <mat-select formControlName="genre">
-        <mat-option *ngFor="let genre of genres$ | async" [value]="genre.id">{{
-          genre.name
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="search-form-field">
+      <clr-select-container>
+        <label>Genre</label>
+        <select clrSelect name="options" formControlName="genre">
+          <option *ngFor="let genre of genres$ | async" [value]="genre.id">
+            {{ genre.name }}
+          </option>
+        </select>
+      </clr-select-container>
+    </div>
 
-    <mat-form-field appearance="fill" class="search-form-field">
-      <mat-label>Year</mat-label>
-      <input matInput formControlName="year" />
-    </mat-form-field>
+    <div class="search-form-field">
+      <label for="basic" class="clr-control-label">Year</label>
+      <div class="clr-control-container">
+        <div class="clr-input-wrapper">
+          <input
+            type="text"
+            id="basic"
+            class="clr-input"
+            formControlName="year"
+          />
+          <cds-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></cds-icon>
+        </div>
+      </div>
+    </div>
 
-    <mat-form-field
+    <div
       *ngIf="searchForm.value.genre && searchForm.value.year"
-      appearance="fill"
       class="search-form-field"
     >
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="title" />
-    </mat-form-field>
+      <label for="basic" class="clr-control-label">Title</label>
+      <div class="clr-control-container">
+        <div class="clr-input-wrapper">
+          <input
+            type="text"
+            id="basic"
+            class="clr-input"
+            formControlName="title"
+          />
+          <cds-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></cds-icon>
+        </div>
+      </div>
+    </div>
 
     <button
       *ngIf="hasSearched"
-      class="search-button"
-      mat-raised-button
-      color="accent"
+      class="btn btn-danger-outline btn-sm search-button"
       (click)="clearSearch()"
     >
-      Clear Search
+      Clear
     </button>
   </form>
 

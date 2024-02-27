@@ -73,14 +73,18 @@ h2 {
 }
 
 .search-form-field {
-  margin: 0 18px;
-  width: 200px;
+  margin: 0 21px;
+  width: 150px;
+}
+
+.clr-form-control {
+  margin-top: 0px;
+  margin-left: 48px;
 }
 
 .search-button {
   margin-left: 18px;
   margin-right: 18px;
-  margin-top: -20px;
 }
 
 .no-results-container {
