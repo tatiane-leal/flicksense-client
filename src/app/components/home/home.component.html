@@ -1,6 +1,9 @@
 <div>
+  <cds-icon class="" shape="plus"></cds-icon>
+
   <h2 class="header-title">Find and select your favorite movies to proceed</h2>
 
+  <br /><br /><br /><br /><br /><br />
   <form
     [formGroup]="searchForm"
     (ngSubmit)="onSearch()"
@@ -81,28 +84,35 @@
             />
           </div>
           <div class="movie-info">
-            <span>
+            <span class="add-button-container">
               <button
-                class="add-button-container"
-                mat-icon-button
-                color="accent"
+                class="btn btn-success"
                 [disabled]="isMovieSelected(movie)"
                 (click)="selectMovies(movie)"
               >
-                <mat-icon>add_circle_outline</mat-icon>
-              </button></span
-            >
+                <clr-icon shape="home"></clr-icon>
+              </button>
+            </span>
           </div>
         </div>
-        <p
-          class="movie-title"
-          *ngIf="shouldShowEllipsis(movie.title)"
-          matTooltip="{{ movie.title }}"
-        >
-          {{ movie.title | slice : 0 : 16 }}...
-        </p>
+        <span>
+          <p *ngIf="shouldShowEllipsis(movie.title)" class="movie-title">
+            {{ movie.title | slice : 0 : 16 }}...
+            <a
+              *ngIf="shouldShowEllipsis(movie.title)"
+              href="..."
+              role="tooltip"
+              aria-haspopup="true"
+              class="tooltip tooltip-md tooltip-bottom-right"
+            >
+              <cds-icon shape="info-circle" size="24"></cds-icon>
+              <span class="tooltip-content">{{ movie.title }}</span>
+            </a>
+          </p>
+        </span>
+
         <p class="movie-title" *ngIf="!shouldShowEllipsis(movie.title)">
-          {{ movie.title }}
+          {{ getTruncatedTitle(movie.title) }}
         </p>
       </li>
     </ul>
@@ -118,14 +128,7 @@
   </ng-template>
 
   <div class="next-button">
-    <button
-      mat-raised-button
-      (click)="saveMovies()"
-      color="primary"
-      class="next-button"
-    >
-      Next
-    </button>
+    <button class="btn btn-primary" (click)="saveMovies()">Next</button>
   </div>
 
   <div class="tmdb-api-credits">

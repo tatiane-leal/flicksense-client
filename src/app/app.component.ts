@@ -13,6 +13,7 @@ import { AuthService } from './services/auth.service';
 import { TokenStorageService } from './services/token-storage.service';
 import { CurrentUser } from '../models/user.interface';
 import { Observable } from 'rxjs';
+import { ClarityModule } from '@clr/angular';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ import { Observable } from 'rxjs';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    ClarityModule,
   ],
 })
 export class AppComponent implements OnInit {
@@ -51,5 +53,9 @@ export class AppComponent implements OnInit {
         console.error(error);
       },
     });
+  }
+
+  switchToDarkMode(): void {
+    console.log('switch to dark mode');
   }
 }

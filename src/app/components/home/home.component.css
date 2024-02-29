@@ -55,6 +55,7 @@ h2 {
 
 .tmdb-api-credits {
   display: flex;
+  justify-content: center;
   margin-top: 50px;
 }
 
