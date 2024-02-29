@@ -21,6 +21,7 @@ import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth.service';
 import { CurrentUser } from '../../../models/user.interface';
 import { TokenStorageService } from '../../services/token-storage.service';
+import { ClarityModule } from '@clr/angular';
 
 @Component({
   selector: 'app-home',
@@ -39,6 +40,7 @@ import { TokenStorageService } from '../../services/token-storage.service';
     MatTooltipModule,
     MatChipsModule,
     MatToolbarModule,
+    ClarityModule,
   ],
   providers: [MoviesService, ApiService, AuthService, TokenStorageService],
   templateUrl: './home.component.html',
@@ -185,7 +187,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  shouldShowEllipsis(movieTitle: string) {
-    return movieTitle.length > 16;
+  // shouldShowEllipsis(movieTitle: string) {
+  //   return movieTitle.length > 16;
+  // }
+
+  shouldShowEllipsis(title: string): boolean {
+    return title.length > 16;
+  }
+
+  getTruncatedTitle(title: string): string {
+    return this.shouldShowEllipsis(title)
+      ? `${title.substring(0, 13)}...`
+      : title;
   }
 }

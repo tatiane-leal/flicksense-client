@@ -1,35 +1,65 @@
-<div>
-  <mat-toolbar *ngIf="authService.isAuthenticated">
-    <div class="user-info-container" routerLink="/">
-      FlickSense |
-      <span>
-        <img
-          class="avatar"
-          src="./../assets/images/milla-chow.png"
-          alt="User Profile Picture"
-        />
-      </span>
-      <span>
-        {{ (authService.currentUser | async)?.UserInfo?.name }}
-      </span>
-    </div>
+<!-- <mat-toolbar *ngIf="authService.isAuthenticated">
+  <div class="user-info-container" routerLink="/">
+    FlickSense |
+    <span>
+      <img
+        class="avatar"
+        src="./../assets/images/milla-chow.png"
+        alt="User Profile Picture"
+      />
+    </span>
+    <span>
+      {{ (authService.currentUser | async)?.UserInfo?.name }}
+    </span>
+  </div>
 
-    <span class="example-spacer"></span>
-    <button
-      mat-button
-      *ngIf="!authService.isAuthenticated"
-      routerLink="/register"
-    >
-      Register
-    </button>
-    <button
-      mat-button
-      *ngIf="authService.isAuthenticated"
-      (click)="logoutUser()"
-    >
-      Logout
-    </button>
-  </mat-toolbar>
-</div>
+  <span class="example-spacer"></span>
+  <button
+    mat-button
+    *ngIf="!authService.isAuthenticated"
+    routerLink="/register"
+  >
+    Register
+  </button>
+  <button
+    mat-button
+    *ngIf="authService.isAuthenticated"
+    (click)="logoutUser()"
+  >
+    Logout
+  </button>
+</mat-toolbar> -->
+
+<header class="header-6">
+  <div class="branding">
+    <a href="..." class="nav-link">
+      <img
+        class="flicksense-logo"
+        src="./../assets/images/flicksense-logo.png"
+      />
+      <span class="title">FlickSense</span>
+    </a>
+  </div>
+  <div class="header-actions">
+    <clr-dropdown>
+      <button
+        class="nav-text"
+        clrDropdownTrigger
+        aria-label="open user profile"
+      >
+        {{ (authService.currentUser | async)?.UserInfo?.name }}
+        <cds-icon shape="angle" direction="down"></cds-icon>
+      </button>
+      <ng-container *ngIf="authService.isAuthenticated">
+        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+          <a (click)="logoutUser()" clrDropdownItem>Log out</a>
+          <a (click)="switchToDarkMode()" clrDropdownItem
+            >Switch to Dark Mode</a
+          >
+        </clr-dropdown-menu>
+      </ng-container>
+    </clr-dropdown>
+  </div>
+</header>
 
 <router-outlet></router-outlet>
