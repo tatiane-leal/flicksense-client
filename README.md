@@ -35,15 +35,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-`.env` needed to run locally:
-```javascript
-ACCESS_TOKEN_SECRET=
-REFRESH_TOKEN_SECRET=
-DATABASE_URI=mongodb+srv://...
-GOOGLE_API_KEY=
-```
-# Coming Soon
-
 # Running Unit Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
