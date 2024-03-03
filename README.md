@@ -35,10 +35,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Security Note
-
-Please note that the Google Cloud API Key is stored in an environment variable that is not included in the [GitHub repository](https://github.com/tatiane-leal/flicksense-server). Once the project is deployed, the deployment link will be shared here, making it easier to interact with the application.
-
+`.env` needed to run locally:
+```javascript
+ACCESS_TOKEN_SECRET=
+REFRESH_TOKEN_SECRET=
+DATABASE_URI=mongodb+srv://...
+GOOGLE_API_KEY=
+```
 # Coming Soon
 
 # Running Unit Tests
