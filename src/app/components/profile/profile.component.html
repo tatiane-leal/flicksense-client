@@ -24,9 +24,9 @@
         <li *ngFor="let movie of movies">
           <div
             [ngClass]="{
-              'add-happy-border': movie.sentiment_result?.isHappy,
-              'add-neutral-border': movie.sentiment_result?.isNeutral,
-              'add-sad-border': movie.sentiment_result?.isSad
+              'add-happy-border': movie.sentiment_result.isHappy,
+              'add-neutral-border': movie.sentiment_result.isNeutral,
+              'add-sad-border': movie.sentiment_result.isSad
             }"
           >
             <div class="poster-container">
