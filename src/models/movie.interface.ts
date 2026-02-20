@@ -1,10 +1,3 @@
-export interface MovieApiResponse {
-  page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
-}
-
 export interface Movie {
   adult: boolean;
   backdrop_path: string | null;
@@ -31,4 +24,10 @@ export interface MoviePayload {
   user?: any;
   id: string | undefined;
   movies: Movie[];
+  newProd?: string;
 }
+
+export interface NewMovie {
+  title?: string;
+}
+
