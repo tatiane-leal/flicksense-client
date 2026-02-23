@@ -1,5 +1,3 @@
-original
-
 export interface MovieApiResponse {
   page: number;
   results: Movie[];
